@@ -2,6 +2,7 @@
 defaults:
   domain: elasticsearch.local.arnoldbechtoldt.com
   base_box: chef/centos-7.0
+  base_box_url: https://atlas.hashicorp.com/chef/boxes/centos-7.0/versions/1.0.0/providers/virtualbox.box
   osfam: rhel
   synced_folders:
     # Common folders
