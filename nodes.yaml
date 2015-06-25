@@ -1,0 +1,30 @@
+---
+defaults:
+  domain: elasticsearch.local.arnoldbechtoldt.com
+  base_box: chef/centos-7.0
+  osfam: rhel
+  synced_folders:
+    # Common folders
+    - src: assets/scripts/provision
+      dst: /vagrant/scripts
+    - src: ../shared/misc
+      dst: /vagrant/shared/misc
+
+    # Salt related folders
+    #- src: ../shared/salt/devenv
+    #  dst: /vagrant/shared/salt/devenv
+    #- src: ../../../salt
+    #  dst: /vagrant/src/salt
+    #- src: ../../../salt-modules/_modules
+    #  dst: /vagrant/salt/_modules
+    #- src: ../../../salt-modules/_states
+    #  dst: /vagrant/salt/_states
+  provision:
+    - name: basic
+    - name: saltstack_install_bootstrap
+      env:
+        params: '-P,-M,-K,-g,https://github.com/bechtoldt/salt.git,git,refactor_es_modules'
+    - name: saltstack_config
+    - name: saltstack_services
+nodes:
+  client1: {}
