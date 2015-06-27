@@ -8,8 +8,8 @@ defaults:
     # Common folders
     - src: assets/scripts/provision
       dst: /vagrant/scripts
-    - src: ../shared/misc
-      dst: /vagrant/shared/misc
+    #- src: ../shared/misc
+    #- dst: /vagrant/shared/misc
 
     # Salt related folders
     #- src: ../shared/salt/devenv
